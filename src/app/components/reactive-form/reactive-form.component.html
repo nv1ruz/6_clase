@@ -1,1 +1,61 @@
-<p>reactive-form works!</p>
+<p>Reactive form</p>
+
+<form class="card" [formGroup]="formularioPersona" (ngSubmit)="onSubmit()">
+   <p class="card__titulo">Formulario de una persona</p> 
+
+    <div class="form-control-group">
+        <p class="form-control-label">Apellido *</p>
+        <input type="text" class="form-control" formControlName="apellido">
+        <div class="invalid-feedback">
+            <span *ngIf="formularioPersona.get('apellido')!.errors?.required">Es un campo requerido</span>
+            <span *ngIf="formularioPersona.get('apellido')!.errors?.maxlength">El máximo permitido es 15 caracteres</span>
+        </div>
+    </div>
+
+    <div class="form-control-group mt-10">
+        <p class="form-control-label">Nombre *</p>
+        <input type="text" class="form-control" formControlName="nombre">
+        <div class="invalid-feedback">
+            <span *ngIf="formularioPersona.get('nombre')!.errors?.required">Es un campo requerido</span>
+            <span *ngIf="formularioPersona.get('nombre')!.errors?.maxlength">El máximo permitido es 15 caracteres</span>
+        </div>
+    </div>
+
+    <div class="form-control-group mt-10">
+        <p class="form-control-label">Documento *</p>
+        <input type="number" class="form-control" formControlName="documento">
+        <div class="invalid-feedback">
+            <span *ngIf="formularioPersona.get('documento')!.errors?.required">Es un campo requerido</span>
+            <span *ngIf="formularioPersona.get('documento')!.errors?.maxlength">El máximo permitido es 8 caracteres</span>
+        </div>
+    </div>
+
+    <div class="form-control-group mt-10">
+        <p class="form-control-label">Género *</p>
+        <select class="form-control" formControlName="genero_id">
+            <option value="0">Sin definir</option>
+            <option [value]="genero.id" *ngFor="let genero of generosPersona">{{ genero.descripcion }}</option>
+        </select>
+        <div class="invalid-feedback">
+            <span *ngIf="formularioPersona.get('genero_id')!.errors?.required">Es un campo requerido</span>
+            <span *ngIf="formularioPersona.get('genero_id')!.errors?.maxlength">El máximo permitido es 8 caracteres</span>
+        </div>
+    </div>
+
+    <button type="submit"
+            class="btn-primario mt-10"
+            style="margin-right: 10px;"
+            [disabled]="formularioPersona.invalid">
+            Enviar formulario
+    </button>
+
+    <button class="btn-primario" type="button" (click)="limpiarFormulario()">Limpiar formulario</button>
+
+</form>
+
+<div class="card mt-10">
+    <p class="card__titulo">Datos del formulario</p> 
+
+    <p><strong>Formulario válido:</strong> {{ (formularioPersona.valid)? 'Si': 'No' }}</p> 
+    <p><strong>Valor:</strong> {{ formularioPersona.value | json }}</p>
+</div>

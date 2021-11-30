@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+body{
+    background-color: #F6F5FA;
+}
+
 .form-control-container{
     margin-top      : 10px;
     margin-bottom   : 10px;
@@ -39,4 +43,8 @@
 .form-control option{
     font-weight         : normal;
     background-color    : #F6F5FA;
+}
+.invalid-feedback{
+    font-size   : 12px;
+    color       : #C53644;
 }
