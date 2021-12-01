@@ -1,0 +1,33 @@
+.mt-10{
+    margin-top: 10px !important;
+}
+
+.card{
+    margin: 0 auto; 
+    padding: 10px;
+    max-width: 500px; 
+    border-radius: 4px; 
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.04);
+}
+.card__titulo{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-primario{
+    padding: 10px;
+    border: 0;
+    border-radius: 4px;
+}
+.btn-primario:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #5771FF;
+    transition: all ease 0.1s;
+}
+.btn-primario:disabled{
+    color: #6F7782;
+    background-color: transparent;
+    cursor: auto;
+}
